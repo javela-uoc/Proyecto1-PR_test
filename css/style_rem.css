@@ -1,0 +1,584 @@
+/* =============================
+  VARIABLES Y RESET BÁSICO
+============================= */
+:root {
+  --color-bg: #F5F4EF;
+  --color-element: #DDE3D5;
+  --color-title: #3E4E3C;
+  --color-text: #4A4A4A;
+  --color-link: #6A8E6F;
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* =============================
+  ESTRUCTURA GENERAL
+============================= */
+header {
+  background-color: var(--color-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.nav-menu.equal-width li {
+  flex: 1 1 20%;
+  text-align: center;
+}
+.nav-menu.equal-width li a {
+  display: block;
+  width: 100%;
+}
+
+.nav-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 3.5rem;
+  border: 2px solid var(--color-link);
+  background-color: var(--color-element);
+  color: var(--color-link);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+  background-color: var(--color-link);
+  color: var(--color-bg);
+}
+
+.nav-btn.active {
+  background-color: var(--color-link);
+  border-color: var(--color-link);
+  color: var(--color-bg);
+}
+
+main {
+  padding: 1rem;
+}
+
+/* =============================
+  SECCIÓN BANNER
+============================= */
+.banner {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.banner img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-principal {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-element);
+  color: var(--color-link);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-link);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  text-align: center;
+}
+.btn-principal:hover,
+.btn-principal:focus {
+  background-color: var(--color-link);
+  color: var(--color-bg);
+}
+
+/* =============================
+  SECCIÓN NOVEDADES
+============================= */
+.novedades .productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.productos img {
+  border-radius: 10px;
+}
+
+.producto h3 {
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  margin: 0.5rem 0;
+}
+
+.ver-mas {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+/* =============================
+  SECCIÓN LA MARCA
+============================= */
+.historia {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.valores {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: right;
+}
+
+.historia h1, .valores h2{
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  margin-bottom: 1rem;
+}
+
+.valores ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.valores li {
+  margin-bottom: 0.75rem;
+}
+
+/* =============================
+   SECCIÓN CATÁLOGO
+============================= */
+.catalogo {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+.filtros {
+  background-color: var(--color-element);
+  padding: 1rem;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.filtros h2 {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--color-title);
+}
+
+.filtros form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filtros fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filtros legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.filtros label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.catalogo .productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.catalogo .producto h3 {
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  margin-top: 0.5rem;
+}
+
+.catalogo .ver-mas {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: var(--color-link);
+}
+
+/* =============================
+   PRODUCTOS EN CATÁLOGO
+============================= */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.producto img {
+  border-radius: 10px;
+}
+
+.producto h3 {
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.precio-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.precio {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  color: var(--color-title);
+}
+
+.carrito-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-link);
+  border-radius: 8px;
+  background-color: var(--color-element);
+  transition: background-color 0.3s ease;
+}
+
+.carrito-btn:hover {
+  background-color: var(--color-link);
+}
+
+.carrito-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* =============================
+   PRODUCTO DETALLE
+============================= */
+.producto-detalle {
+  padding: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.producto-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.producto-imagen {
+  flex: 1 1 40%;
+}
+
+.producto-imagen img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.producto-info {
+  flex: 1 1 55%;
+}
+
+.producto-info h1 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: var(--color-title);
+}
+
+.producto-info .tamano,
+.producto-info .pvp,
+.producto-info .precio-ml {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.descripcion h2 {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: var(--color-title);
+}
+
+.descripcion p {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+/* =============================
+   NOTAS Y INGREDIENTES
+============================= */
+.notas-ingredientes {
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.notas,
+.ingredientes {
+  flex: 1 1 45%;
+}
+
+.notas h2,
+.ingredientes h2 {
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  margin-bottom: 1rem;
+}
+
+.notas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notas li {
+  margin-bottom: 0.5rem;
+}
+
+/* =============================
+   RELACIONADOS
+============================= */
+.relacionados h2 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  color: var(--color-title);
+  margin-bottom: 1.5rem;
+}
+
+.relacionados .productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+/* =============================
+   OPINIONES
+============================= */
+.opiniones {
+  margin-top: 3rem;
+}
+
+.opiniones h2 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-title);
+}
+
+.opinion {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.opinion .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.opinion h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-title);
+}
+
+.opinion p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .producto-main,
+  .notas-ingredientes {
+    flex-direction: column;
+  }
+  .producto-imagen,
+  .producto-info,
+  .notas,
+  .ingredientes {
+    flex: 1 1 100%;
+  }
+}
+
+/* =============================
+  VIDEO
+============================= */
+.video video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* =============================
+  FOOTER
+============================= */
+footer {
+  margin-top: 1rem;
+}
+
+.footer-main {
+  background-color: var(--color-element);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-main .footer-col {
+  text-align: center;
+}
+
+.footer-main .footer-col:first-child {
+  text-align: left;
+}
+
+.footer-main .footer-col:nth-child(2) {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.footer-main .footer-col:nth-child(2) img {
+  width: 36px;
+  height: auto;
+}
+
+.footer-main .footer-col:nth-child(3) img {
+  border-radius: 0;
+}
+
+.footer-copy {
+  background-color: var(--color-bg);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text);
+  padding: 1rem;
+}
+
+.footer-info nav a {
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-title);
+}
+
+/* =============================
+  RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-principal {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Corrección adicional para iconos sociales aún más visibles */
+.footer-main .footer-col:nth-child(2) img {
+  width: 48px;
+  height: auto;
+}
+
+/* Mantener el menú de navegación en una sola línea y ajustar distribución */
+.nav-menu {
+  flex-wrap: nowrap; /* evita salto de línea */
+  overflow-x: auto; /* permite desplazamiento si no cabe */
+  gap: 0;
+}
+
+.nav-menu.equal-width li {
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+/* Ajustar menú para ocupar el ancho completo */
+.nav-menu {
+  width: 100%;
+  max-width: none;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+/* Añadir espacio entre los botones del menú */
+.nav-menu.equal-width li {
+  flex: 1 1 auto;
+  min-width: 120px;
+  margin: 0 0.25rem;
+}
